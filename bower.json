@@ -1,0 +1,26 @@
+{
+  "name": "queryfetch",
+  "description": "Simple JS module to parse/serialize HTTP query/params, useful for Fetch API or AJAX requests",
+  "main": "queryfetch.umd.js",
+  "authors": [
+    "Alex Bruno <webmaster@alexbruno.net.br>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "parse",
+    "serialize",
+    "query",
+    "params",
+    "http",
+    "js",
+    "javascript"
+  ],
+  "homepage": "https://github.com/alexbruno/queryfetch",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

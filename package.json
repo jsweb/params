@@ -1,0 +1,36 @@
+{
+	"name": "queryfetch",
+	"version": "1.0.0",
+	"description": "Simple JS module to parse/serialize HTTP query/params, useful for Fetch API or AJAX requests",
+	"main": "queryfetch.umd.js",
+	"jsnext:main": "queryfetch.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/alexbruno/queryfetch.git"
+	},
+	"keywords": [
+		"parse",
+		"serialize",
+		"query",
+		"params",
+		"http",
+		"js",
+		"javascript"
+	],
+	"author": "Alex Bruno <webmaster@alexbruno.net.br>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/alexbruno/queryfetch/issues"
+	},
+	"homepage": "https://github.com/alexbruno/queryfetch#readme",
+	"scripts": {
+		"compile": "rollup -c",
+		"minify": "uglifyjs -cmo queryfetch.min.js -- queryfetch.umd.js",
+		"build": "npm run compile && npm run minify"
+	},
+	"devDependencies": {
+		"rollup": "latest",
+		"rollup-plugin-buble": "latest",
+		"uglify-js": "latest"
+	}
+}
