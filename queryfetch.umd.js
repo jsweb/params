@@ -6,6 +6,31 @@
 
 	var queryfetch = {}
 
+	queryfetch.form = function (o) {
+		if (typeof FormData === 'undefined')
+			return console.error('FormData not supported')
+
+		if (o instanceof FormData)
+			return o
+
+		if (typeof HTMLFormElement !== 'undefined')
+			if (o instanceof HTMLFormElement)
+				return new FormData(o)
+
+		if (o instanceof Object) {
+			var form = new FormData
+			try {
+				for (var k in o)
+					if (o.hasOwnProperty(k))
+						form.append(k, o[k])
+			} catch (e) {
+				console.error(e.message)
+			}
+			return form
+		}
+
+	}
+
 	queryfetch.serialize = function (obj, pre) {
 		var keys = Object.keys(obj),
 			pairs = keys.map(function (k) {
@@ -19,10 +44,11 @@
 	}
 
 	queryfetch.parse = function (qs) {
-		var query = qs.startsWith('?') ? qs.substr(1) : qs,
-			data = {}
+		var data = {},
+			query = qs.startsWith('?') ? qs.substr(1) : qs,
+			pairs = query.replace(/(;+|&+)/g, '&').split('&')
 
-		query.replace(/(;+|&+)/g, '&').split('&').forEach(function (pair) {
+		pairs.forEach(function (pair) {
 			var ref = pair.split('=').map(decodeURIComponent);
 			var k = ref[0];
 			var v = ref[1];

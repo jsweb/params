@@ -1,5 +1,30 @@
 let queryfetch = {}
 
+queryfetch.form = o => {
+	if (typeof FormData === 'undefined')
+		return console.error('FormData not supported')
+
+	if (o instanceof FormData)
+		return o
+
+	if (typeof HTMLFormElement !== 'undefined')
+		if (o instanceof HTMLFormElement)
+			return new FormData(o)
+
+	if (o instanceof Object) {
+		let form = new FormData
+		try {
+			for (let k in o)
+				if (o.hasOwnProperty(k))
+					form.append(k, o[k])
+		} catch (e) {
+			console.error(e.message)
+		}
+		return form
+	}
+
+}
+
 queryfetch.serialize = (obj, pre) => {
 	let keys = Object.keys(obj),
 		pairs = keys.map(k => {
@@ -13,10 +38,11 @@ queryfetch.serialize = (obj, pre) => {
 }
 
 queryfetch.parse = qs => {
-	let query = qs.startsWith('?') ? qs.substr(1) : qs,
-		data = {}
+	let data = {},
+		query = qs.startsWith('?') ? qs.substr(1) : qs,
+		pairs = query.replace(/(;+|&+)/g, '&').split('&')
 
-	query.replace(/(;+|&+)/g, '&').split('&').forEach(pair => {
+	pairs.forEach(pair => {
 		let [k, v] = pair.split('=').map(decodeURIComponent)
 
 		if (!k)
