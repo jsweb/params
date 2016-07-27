@@ -6,31 +6,6 @@
 
 	var queryfetch = {}
 
-	queryfetch.form = function (o) {
-		if (typeof FormData === 'undefined')
-			return console.error('FormData not supported')
-
-		if (o instanceof FormData)
-			return o
-
-		if (typeof HTMLFormElement !== 'undefined')
-			if (o instanceof HTMLFormElement)
-				return new FormData(o)
-
-		if (o instanceof Object) {
-			var form = new FormData
-			try {
-				for (var k in o)
-					if (o.hasOwnProperty(k))
-						form.append(k, o[k])
-			} catch (e) {
-				console.error(e.message)
-			}
-			return form
-		}
-
-	}
-
 	queryfetch.serialize = function (obj, pre) {
 		var keys = Object.keys(obj),
 			pairs = keys.map(function (k) {
@@ -75,6 +50,31 @@
 		})
 
 		return data
+	}
+
+	queryfetch.form = function (o) {
+		if (typeof FormData === 'undefined')
+			return console.error('FormData not supported')
+
+		if (o instanceof FormData)
+			return o
+
+		if (typeof HTMLFormElement !== 'undefined')
+			if (o instanceof HTMLFormElement)
+				return new FormData(o)
+
+		if (o instanceof Object) {
+			var form = new FormData
+			try {
+				for (var k in o)
+					if (o.hasOwnProperty(k))
+						form.append(k, o[k])
+			} catch (e) {
+				console.error(e.message)
+			}
+			return form
+		}
+
 	}
 
 	return queryfetch;
