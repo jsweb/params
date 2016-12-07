@@ -39,7 +39,7 @@ require(['queryfetch'], queryfetch => {
 
 ###Global
 ```html
-<script src="path/to/queryfetch/queryfetch.min.js"></script>
+<script src="path/to/queryfetch/queryfetch.umd.js"></script>
 ```
 
 ##Methods

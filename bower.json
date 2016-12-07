@@ -3,7 +3,7 @@
   "description": "Simple JS module to parse/serialize HTTP query/params, useful for Fetch API or AJAX requests",
   "main": "queryfetch.umd.js",
   "authors": [
-    "Alex Bruno <webmaster@alexbruno.net.br>"
+    "Alex Bruno <master@conext.online>"
   ],
   "license": "MIT",
   "keywords": [
@@ -19,7 +19,6 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
     "test",
     "tests"
   ]

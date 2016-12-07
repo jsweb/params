@@ -6,7 +6,7 @@
   "jsnext:main": "queryfetch.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alexbruno/queryfetch.git"
+    "url": "git+https://gitlab.com/alexbruno/queryfetch.git"
   },
   "keywords": [
     "parse",
@@ -20,17 +20,34 @@
   "author": "Alex Bruno <webmaster@alexbruno.net.br>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alexbruno/queryfetch/issues"
+    "url": "https://gitlab.com/alexbruno/queryfetch/issues"
   },
-  "homepage": "https://github.com/alexbruno/queryfetch#readme",
-  "scripts": {
-    "compile": "rollup -c",
-    "minify": "uglifyjs -cmo queryfetch.min.js -- queryfetch.umd.js",
-    "build": "npm run compile && npm run minify"
-  },
+  "homepage": "https://gitlab.com/alexbruno/queryfetch#readme",
   "devDependencies": {
+    "autoprefixer-stylus": "latest",
+    "axis": "latest",
+    "gulp": "latest",
+    "gulp-cached": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-live-server": "latest",
+    "gulp-load-plugins": "latest",
+    "gulp-notify": "latest",
+    "gulp-pug": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-stylus": "latest",
+    "jeet": "latest",
+    "nib": "latest",
     "rollup": "latest",
     "rollup-plugin-buble": "latest",
-    "uglify-js": "latest"
+    "rollup-plugin-commonjs": "latest",
+    "rollup-plugin-node-resolve": "latest",
+    "rollup-plugin-uglify": "latest",
+    "rupture": "latest",
+    "vue": "latest"
+  },
+  "scripts": {
+    "bundle": "gulp lib",
+    "build": "npm run bundle",
+    "postinstall": "npm run build"
   }
 }
