@@ -1,6 +1,6 @@
 {
   "name": "queryfetch",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Simple JS module to parse/serialize HTTP query/params, useful for Fetch API or AJAX requests",
   "main": "queryfetch.umd.js",
   "jsnext:main": "queryfetch.js",
