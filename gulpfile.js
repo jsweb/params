@@ -3,7 +3,7 @@ const gulp = require('gulp'),
 	server = require('gulp-live-server'),
 	system = require('node-notifier'),
 	rollup = require('rollup').rollup,
-	bubble = require('rollup-plugin-buble'),
+	buble = require('rollup-plugin-buble'),
 	uglify = require('rollup-plugin-uglify'),
 	commonjs = require('rollup-plugin-commonjs'),
 	resolve = require('rollup-plugin-node-resolve'),
@@ -20,11 +20,11 @@ const gulp = require('gulp'),
 		},
 		use: [nib(), axis(), jeet(), rupture(), autoprefixer()]
 	},
-	bundle = (entry, dest, module, format, map) => {
+	bundle = (entry, dest, format, mod, map) => {
 		return rollup({
 			entry,
 			plugins: [
-				bubble(),
+				buble(),
 				uglify(),
 				commonjs({
 					include: 'node_modules/**'
@@ -38,8 +38,8 @@ const gulp = require('gulp'),
 			js.write({
 				dest,
 				format,
-				moduleId: module,
-				moduleName: module,
+				moduleId: mod,
+				moduleName: mod,
 				sourceMap: map,
 			})
 			return system.notify({
@@ -83,10 +83,10 @@ gulp.task('pug', done => {
 
 //Rollup
 gulp.task('lib', done => {
-	return bundle('queryfetch.js', 'queryfetch.umd.js', 'queryfetch', 'umd', false)
+	return bundle('queryfetch.js', 'queryfetch.umd.js', 'umd', 'queryfetch', false)
 })
 gulp.task('index', done => {
-	return bundle('web/js/index.js', 'web/index.js', 'index', 'iife', 'inline')
+	return bundle('web/js/index.js', 'web/index.js', 'iife', 'index', 'inline')
 })
 
 //Cache

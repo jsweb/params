@@ -6,7 +6,7 @@
   "jsnext:main": "queryfetch.js",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/alexbruno/queryfetch.git"
+    "url": "git+https://gitlab.com/conext/queryfetch.git"
   },
   "keywords": [
     "parse",
@@ -17,12 +17,12 @@
     "js",
     "javascript"
   ],
-  "author": "Alex Bruno <webmaster@alexbruno.net.br>",
+  "author": "Alex Bruno <master@conext.online>",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/alexbruno/queryfetch/issues"
+    "url": "https://gitlab.com/conext/queryfetch/issues"
   },
-  "homepage": "https://gitlab.com/alexbruno/queryfetch#readme",
+  "homepage": "https://gitlab.com/conext/queryfetch",
   "devDependencies": {
     "autoprefixer-stylus": "latest",
     "axis": "latest",
@@ -44,10 +44,5 @@
     "rollup-plugin-uglify": "latest",
     "rupture": "latest",
     "vue": "latest"
-  },
-  "scripts": {
-    "bundle": "gulp lib",
-    "build": "npm run bundle",
-    "postinstall": "npm run build"
   }
 }
