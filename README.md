@@ -2,7 +2,7 @@
 
 Simple JS module to parse/serialize HTTP query/params, useful for Fetch API or AJAX requests.
 
-##Instalation
+## Instalation
 
 You can install it with Bower or NPM:
 
@@ -18,35 +18,35 @@ If you are using JSPM you can install **queryfetch** from NPM:
 
 `jspm i queryfetch=npm:queryfetch`
 
-##Usage
+## Usage
 
-###ES6
+### ES6
 ```javascript
 import queryfetch from 'queryfetch'
 ```
 
-###CommonJS
+### CommonJS
 ```javascript
 let queryfetch = require('queryfetch')
 ```
 
-###AMD
+### AMD
 ```javascript
 require(['queryfetch'], queryfetch => {
     //code go here
 })
 ```
 
-###Global
+### Global
 ```html
 <script src="path/to/queryfetch/queryfetch.umd.js"></script>
 ```
 
-##Methods
+## Methods
 
 There are only 3 methods within **queryfetch**:
 
-###queryfetch.serialize(obj)
+### queryfetch.serialize(obj)
 
 Serializes a literal Object to a querystring.
 
@@ -56,7 +56,7 @@ let obj = { a: 1, b: 2, c: 3 }
 queryfetch.serialize(obj)   //returns 'a=1&b=2&c=3'
 ```
 
-###queryfetch.parse(str)
+### queryfetch.parse(str)
 
 Reverse a querystring to a literal Object.
 
@@ -66,7 +66,7 @@ let str = 'a=1&b=2&c=3' //with or without first '?' character
 queryfetch.parse(str)   //returns { a: 1, b: 2, c: 3 }
 ```
 
-###queryfetch.form(obj)
+### queryfetch.form(obj)
 
 This method is a *bonus* to turn a literal Object into FormData instance.
 
