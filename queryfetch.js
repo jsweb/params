@@ -65,6 +65,10 @@ queryfetch.form = o => {
 		return form
 	}
 
+    if (typeof o === 'string')
+        return o
+    
+    return null
 }
 
 export default queryfetch
