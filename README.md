@@ -42,36 +42,55 @@ require(['queryfetch'], queryfetch => {
 <script src="path/to/queryfetch/queryfetch.umd.js"></script>
 ```
 
+It's also possible to get it from the great UNPKG CDN:
+
+```html
+<script src="https://unpkg.com/queryfetch"></script>
+```
+
+## Instance
+
+**queryfetch** is a function that returns a class object constructor.
+
+It needs to receive a source argument which will be used at methods execution.
+
+Examples:
+
+```javascript
+let str = queryfetch('a=1&b=2&c=3'),
+	obj = queryfetch({ a: 1, b: 2, c: 3 })
+```
+
 ## Methods
 
 There are only 3 methods within **queryfetch**:
 
-### queryfetch.serialize(obj)
+### str.parse()
+
+It converts a querystring to a literal Object.
+
+```javascript
+let str = queryfetch('a=1&b=2&c=3') //with or without first '?' character
+
+str.parse()   // returns { a: 1, b: 2, c: 3 }
+```
+
+### obj.serialize()
 
 Serializes a literal Object to a querystring.
 
 ```javascript
-let obj = { a: 1, b: 2, c: 3 }
+let obj = queryfetch({ a: 1, b: 2, c: 3 })
 
-queryfetch.serialize(obj)   //returns 'a=1&b=2&c=3'
+obj.serialize()   // returns 'a=1&b=2&c=3'
 ```
 
-### queryfetch.parse(str)
-
-Reverse a querystring to a literal Object.
-
-```javascript
-let str = 'a=1&b=2&c=3' //with or without first '?' character
-
-queryfetch.parse(str)   //returns { a: 1, b: 2, c: 3 }
-```
-
-### queryfetch.form(obj)
+### obj.form()
 
 This method is a *bonus* to turn a literal Object into FormData instance.
 
 ```javascript
-let obj = { a: 1, b: 2, c: 3 }
+let obj = queryfetch({ a: 1, b: 2, c: 3 })
 
-queryfetch.form(obj)   //returns a new FormData instance with obj fields
+obj.form()   // returns a new FormData instance with obj fields/values
 ```

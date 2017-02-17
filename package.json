@@ -6,7 +6,7 @@
   "jsnext:main": "queryfetch.js",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/conext/queryfetch.git"
+    "url": "git+https://gitlab.com/infodigital/queryfetch.git"
   },
   "keywords": [
     "parse",
@@ -17,12 +17,12 @@
     "js",
     "javascript"
   ],
-  "author": "Alex Bruno <master@conext.online>",
+  "author": "Alex Bruno <git.alexbr@outlook.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/conext/queryfetch/issues"
+    "url": "https://gitlab.com/infodigital/queryfetch/issues"
   },
-  "homepage": "https://gitlab.com/conext/queryfetch",
+  "homepage": "https://gitlab.com/infodigital/queryfetch",
   "devDependencies": {
     "autoprefixer-stylus": "latest",
     "axis": "latest",
