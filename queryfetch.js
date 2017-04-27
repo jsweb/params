@@ -4,13 +4,15 @@ class QueryFetch {
 	}
 
 	serialize(obj, pre) {
-		let keys = Object.keys(obj || this.src),
+		let src = this.src,
+			keys = Object.keys(obj || src),
 			pairs = keys.map(k => {
-				let item = this.src[k],
-					p = pre ? `${pre}[${k}]` : k
-				return item instanceof Object ? this.serialize(item, p) : [p, item].map(encodeURIComponent).join('=')
+				let key = pre ? `${pre}['${k}']` : k,
+					path = `src.${key}`,
+					item = eval(path)
+				return item instanceof Object ? this.serialize(item, key) : [key, item].join('=')
 			})
-		return pairs.join('&')
+		return pairs.join('&').replace(/\'/g, '')
 	}
 
 	parse() {
