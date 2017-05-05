@@ -2,8 +2,8 @@
   "name": "queryfetch",
   "version": "2.0.1",
   "description": "Simple JS module to parse/serialize HTTP query/params, useful for Fetch API or AJAX requests",
-  "main": "queryfetch.umd.js",
-  "jsnext:main": "queryfetch.js",
+  "main": "queryfetch.js",
+  "jsnext:main": "queryfetch.jsx",
   "repository": {
     "type": "git",
     "url": "git+https://gitlab.com/infodigital/queryfetch.git"

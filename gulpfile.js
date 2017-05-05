@@ -83,7 +83,7 @@ gulp.task('pug', done => {
 
 //Rollup
 gulp.task('lib', done => {
-	return bundle('queryfetch.js', 'queryfetch.umd.js', 'umd', 'queryfetch', false)
+	return bundle('queryfetch.jsx', 'queryfetch.js', 'umd', 'queryfetch', false)
 })
 gulp.task('index', done => {
 	return bundle('web/js/index.js', 'web/index.js', 'iife', 'index', 'inline')
