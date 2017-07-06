@@ -6,7 +6,7 @@
   "jsnext:main": "queryfetch.jsx",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/tecno.site/queryfetch.git"
+    "url": "git+https://gitlab.com/tecnos/queryfetch.git"
   },
   "keywords": [
     "parse",
@@ -20,9 +20,9 @@
   "author": "Alex Bruno <git.alexbr@outlook.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/tecno.site/queryfetch/issues"
+    "url": "https://gitlab.com/tecnos/queryfetch/issues"
   },
-  "homepage": "https://gitlab.com/tecno.site/queryfetch",
+  "homepage": "https://gitlab.com/tecnos/queryfetch",
   "devDependencies": {
     "autoprefixer-stylus": "latest",
     "axis": "latest",
