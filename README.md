@@ -1,33 +1,39 @@
 # queryfetch
 
-Simple JS module to parse/serialize HTTP query/params, useful for Fetch API or AJAX requests.
+Dead simple JS module to parse/serialize HTTP query/params. Useful for Fetch API or AJAX requests.
 
 ## Instalation
 
-You can install it with Bower or NPM:
+### CDN
 
-**Bower**
+```html
+<script src="https://unpkg.com/queryfetch"></script>
+```
 
-`bower i -S queryfetch`
-
-**NPM**
+### NPM
 
 `npm i -S queryfetch`
 
-If you are using JSPM you can install **queryfetch** from NPM:
+### Yarn
 
-`jspm i queryfetch=npm:queryfetch`
+`yarn add queryfetch`
+
+### Snipacks
+
+`snipacks add unpkg qf.js queryfetch`
 
 ## Usage
 
 ### ES6
+
 ```javascript
 import queryfetch from 'queryfetch'
 ```
 
 ### CommonJS
+
 ```javascript
-let queryfetch = require('queryfetch')
+const queryfetch = require('queryfetch')
 ```
 
 ### AMD
@@ -38,15 +44,8 @@ require(['queryfetch'], queryfetch => {
 ```
 
 ### Global
-```html
-<script src="path/to/queryfetch/queryfetch.umd.js"></script>
-```
 
-It's also possible to get it from the great UNPKG CDN:
-
-```html
-<script src="https://unpkg.com/queryfetch"></script>
-```
+If you include with script tag, `queryfetch` object will be available globally.
 
 ## Instance
 
@@ -57,7 +56,7 @@ It needs to receive a source argument which will be used at methods execution.
 Examples:
 
 ```javascript
-let str = queryfetch('a=1&b=2&c=3'),
+const str = queryfetch('a=1&b=2&c=3'),
 	obj = queryfetch({ a: 1, b: 2, c: 3 })
 ```
 
@@ -70,7 +69,7 @@ There are only 3 methods within **queryfetch**:
 It converts a querystring to a literal Object.
 
 ```javascript
-let str = queryfetch('a=1&b=2&c=3') //with or without first '?' character
+const str = queryfetch('a=1&b=2&c=3') // with or without first '?' char
 
 str.parse()   // returns { a: 1, b: 2, c: 3 }
 ```
@@ -80,17 +79,19 @@ str.parse()   // returns { a: 1, b: 2, c: 3 }
 Serializes a literal Object to a querystring.
 
 ```javascript
-let obj = queryfetch({ a: 1, b: 2, c: 3 })
+const obj = queryfetch({ a: 1, b: 2, c: 3 })
 
 obj.serialize()   // returns 'a=1&b=2&c=3'
 ```
 
-### obj.form()
+### qf.form()
 
-This method is a *bonus* to turn a literal Object into FormData instance.
+This method is a *bonus* to build a FormData instance.
+
+It can receive an entry as querystring, literal Object or HTMLFormElement.
 
 ```javascript
-let obj = queryfetch({ a: 1, b: 2, c: 3 })
+let qf = queryfetch(any) // querystring, literal Object or HTMLFormElement
 
-obj.form()   // returns a new FormData instance with obj fields/values
+qf.form()   // returns FormData instance with fields/values
 ```

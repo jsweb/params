@@ -16,6 +16,7 @@ class QueryFetch {
 
 				return item instanceof Object ? this.serialize(item, key) : [key, item].join('=')
 			})
+		
 		return pairs.join('&').replace(/\'/g, '')
 	}
 
@@ -58,6 +59,9 @@ class QueryFetch {
 		if (typeof HTMLFormElement !== 'undefined')
 			if (this.src instanceof HTMLFormElement)
 				return new FormData(this.src)
+
+		if (typeof this.src === 'string')
+			return this.form(this.parse())
 
 		if (this.src instanceof Object) {
 			let form = new FormData
