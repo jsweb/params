@@ -1,4 +1,4 @@
-const query = require('./queryfetch'),
+const query = require('./dist/queryfetch'),
   qobj = { a: 1, b: 2, c: 3 },
   qstr = 'a=1&b=2&c=3'
 

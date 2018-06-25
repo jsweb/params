@@ -1,12 +1,12 @@
 {
-  "name": "queryfetch",
+  "name": "@jsweb/queryfetch",
   "version": "2.1.1",
   "description": "Dead simple JS module to parse/serialize HTTP query/params, useful for Fetch API or AJAX requests",
   "main": "queryfetch.js",
-  "jsnext:main": "queryfetch.esm.js",
+  "esnext": "queryfetch.js",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/tecnos/queryfetch.git"
+    "url": "git+https://gitlab.com/webjs/queryfetch.git"
   },
   "keywords": [
     "parse",
@@ -23,9 +23,9 @@
   "author": "Alex Bruno <git.alexbr@outlook.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/tecnos/queryfetch/issues"
+    "url": "https://gitlab.com/webjs/queryfetch/issues"
   },
-  "homepage": "https://gitlab.com/tecnos/queryfetch",
+  "homepage": "https://gitlab.com/webjs/queryfetch",
   "scripts": {
     "test": "jest",
     "build": "rollup -c"
