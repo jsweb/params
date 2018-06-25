@@ -1,51 +1,34 @@
-# queryfetch
+# @jsweb/queryfetch
 
 Dead simple JS module to parse/serialize HTTP query/params. Useful for Fetch API or AJAX requests.
 
 ## Instalation
 
+You can install using NPM, Yarn or from CDN:
+
 ### CDN
 
 ```html
-<script src="https://unpkg.com/queryfetch"></script>
+<script src="https://unpkg.com/@jsweb/queryfetch"></script>
 ```
-
-### NPM
-
-`npm i -S queryfetch`
-
-### Yarn
-
-`yarn add queryfetch`
-
-### Snipacks
-
-`snipacks add unpkg qf.js queryfetch`
 
 ## Usage
 
-### ES6
+### ES6+
 
 ```javascript
-import queryfetch from 'queryfetch'
+import queryfetch from '@jsweb/queryfetch'
 ```
 
 ### CommonJS
 
 ```javascript
-const queryfetch = require('queryfetch')
-```
-
-### AMD
-```javascript
-require(['queryfetch'], queryfetch => {
-    //code go here
-})
+const queryfetch = require('@jsweb/queryfetch')
 ```
 
 ### Global
 
-If you include with script tag, `queryfetch` object will be available globally.
+If you install with CDN script tag, `queryfetch` object will be available globally.
 
 ## Instance
 

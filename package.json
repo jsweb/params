@@ -2,8 +2,8 @@
   "name": "@jsweb/queryfetch",
   "version": "2.1.2",
   "description": "Dead simple JS module to parse/serialize HTTP query/params, useful for Fetch API or AJAX requests",
-  "main": "queryfetch.js",
-  "esnext": "queryfetch.js",
+  "main": "dist/queryfetch.js",
+  "esnext": "src/queryfetch.js",
   "repository": {
     "type": "git",
     "url": "git+https://gitlab.com/webjs/queryfetch.git"
