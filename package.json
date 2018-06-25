@@ -1,6 +1,6 @@
 {
   "name": "@jsweb/queryfetch",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Dead simple JS module to parse/serialize HTTP query/params, useful for Fetch API or AJAX requests",
   "main": "dist/queryfetch.js",
   "esnext": "src/queryfetch.js",
