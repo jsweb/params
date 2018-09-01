@@ -1,0 +1,8 @@
+[build]
+  command = 'npm run report'
+  publish = 'mochawesome-report'
+
+[[redirects]]
+  from = '/*'
+  status = 200
+  to = '/mochawesome.html'
