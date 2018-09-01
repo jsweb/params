@@ -1,15 +1,21 @@
-# @jsweb/queryfetch
+# @jsweb/params
 
-Dead simple JS module to parse/serialize HTTP query/params. Useful for Fetch API or AJAX requests.
+Simple JS module to parse/serialize HTTP query/params. Useful for Fetch API or AJAX requests.
 
 ## Instalation
 
 You can install using NPM, Yarn or from CDN:
 
-### CDN
+```
+npm i -S @jsweb/params
+```
+
+```
+yarn add @jsweb/params
+```
 
 ```html
-<script src="https://unpkg.com/@jsweb/queryfetch"></script>
+<script src="https://unpkg.com/@jsweb/params"></script>
 ```
 
 ## Usage
@@ -17,64 +23,64 @@ You can install using NPM, Yarn or from CDN:
 ### ES6+
 
 ```javascript
-import queryfetch from '@jsweb/queryfetch'
+import params from '@jsweb/params'
 ```
 
 ### CommonJS
 
 ```javascript
-const queryfetch = require('@jsweb/queryfetch')
+const params = require('@jsweb/params')
 ```
 
 ### Global
 
-If you install with CDN script tag, `queryfetch` object will be available globally.
+If you install with CDN script tag, `params` object will be available globally at `window` scope.
 
 ## Instance
 
-**queryfetch** is a function that returns a class object constructor.
+**params** is a function that returns a class object constructor.
 
 It needs to receive a source argument which will be used at methods execution.
 
 Examples:
 
 ```javascript
-const str = queryfetch('a=1&b=2&c=3'),
-	obj = queryfetch({ a: 1, b: 2, c: 3 })
+const str = params('a=1&b=2&c=3')
+const obj = params({ a: 1, b: 2, c: 3 })
 ```
 
 ## Methods
 
-There are only 3 methods within **queryfetch**:
+There are only 3 methods within **params**:
 
-### str.parse()
+### params(str).parse()
 
-It converts a querystring to a literal Object.
-
-```javascript
-const str = queryfetch('a=1&b=2&c=3') // with or without first '?' char
-
-str.parse()   // returns { a: 1, b: 2, c: 3 }
-```
-
-### obj.serialize()
-
-Serializes a literal Object to a querystring.
+It converts a query string to a literal Object.
 
 ```javascript
-const obj = queryfetch({ a: 1, b: 2, c: 3 })
+const str = params('a=1&b=2&c=3') // with or without first '?' char
 
-obj.serialize()   // returns 'a=1&b=2&c=3'
+str.parse()                       // returns { a: 1, b: 2, c: 3 }
 ```
 
-### qf.form()
+### params(obj).serialize()
+
+Serializes a literal Object to a query string.
+
+```javascript
+const obj = params({ a: 1, b: 2, c: 3 })
+
+obj.serialize() // returns 'a=1&b=2&c=3'
+```
+
+### params(data).form()
 
 This method is a *bonus* to build a FormData instance.
 
-It can receive an entry as querystring, literal Object or HTMLFormElement.
+It can receive an entry as query string, literal Object or HTMLFormElement.
 
 ```javascript
-let qf = queryfetch(any) // querystring, literal Object or HTMLFormElement
+const data = params(any)  // querystring, literal Object or HTMLFormElement
 
-qf.form()   // returns FormData instance with fields/values
+data.form()               // returns FormData instance with fields/values
 ```
