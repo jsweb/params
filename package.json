@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/jsweb/params/issues"
   },
-  "homepage": "https://github.com/jsweb/params",
+  "homepage": "https://params.jsweb.app",
   "scripts": {
     "dist": "rollup -c",
     "test": "mocha dist",
