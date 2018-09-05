@@ -1,5 +1,5 @@
 import { equal, deepEqual } from 'assert'
-import params from './params'
+import params from './main'
 
 const qobj = { a: 1, b: 2, c: 3 }
 const qstr = 'a=1&b=2&c=3'
