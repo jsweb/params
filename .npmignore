@@ -1,3 +1,9 @@
+src
+mocha*
+netlify.toml
+rollup.config.js
+ts*.json
+
 # Logs
 logs
 *.log
