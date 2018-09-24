@@ -1,5 +1,5 @@
 [build]
-  command = 'npm run report'
+  command = 'npm t'
   publish = 'mochawesome-report'
 
 [[redirects]]
