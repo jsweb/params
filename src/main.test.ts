@@ -1,7 +1,6 @@
-import { strict } from 'assert';
+import { deepEqual, equal } from 'assert';
 import params from './main';
 
-const { deepEqual, equal } = strict;
 const qobj = { a: 1, b: 2, c: 3 };
 const qstr = 'a=1&b=2&c=3';
 
