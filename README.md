@@ -2,6 +2,14 @@
 
 Simple JS module to parse/serialize HTTP query/params. Useful for Fetch API or AJAX requests.
 
+See tests at [https://params.jsweb.app](https://params.jsweb.app)
+
+![js-umd](https://img.shields.io/badge/js-umd-blue.svg?style=for-the-badge)
+![ecma-module](https://img.shields.io/badge/ecma-module-blue.svg?style=for-the-badge)
+![npm-package](https://img.shields.io/badge/npm-package-blue.svg?style=for-the-badge)
+![code-typescript](https://img.shields.io/badge/code-typescript-blue.svg?style=for-the-badge)
+![tests-mocha](https://img.shields.io/badge/tests-mocha-blue.svg?style=for-the-badge)
+
 ## Instalation
 
 You can install using NPM, Yarn or from CDN:
