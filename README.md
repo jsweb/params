@@ -22,8 +22,10 @@ yarn add @jsweb/params
 
 ### ES6+
 
+Tree shaking (since v3.1.0):
+
 ```javascript
-import params from '@jsweb/params'
+import { serialize, parse, form } from '@jsweb/params'
 ```
 
 ### CommonJS
@@ -36,51 +38,39 @@ const params = require('@jsweb/params')
 
 If you install with CDN script tag, `params` object will be available globally at `window` scope.
 
-## Instance
-
-**params** is a function that returns a class object constructor.
-
-It needs to receive a source argument which will be used at methods execution.
-
-Examples:
-
-```javascript
-const str = params('a=1&b=2&c=3')
-const obj = params({ a: 1, b: 2, c: 3 })
-```
-
 ## Methods
 
-There are only 3 methods within **params**:
+There are only 3 methods within **@jsweb/params**:
 
-### params(str).parse()
+### serialize(input: array | object): string
 
-It converts a query string to a literal Object.
+Transform an object to HTTP query string.
 
 ```javascript
-const str = params('a=1&b=2&c=3') // with or without first '?' char
+import { serialize } from '@jsweb/params'
 
-str.parse()                       // returns { a: 1, b: 2, c: 3 }
+const query = serialize({ a: 1, b: 2, c: 3 }) // returns 'a=1&b=2&c=3'
 ```
 
-### params(obj).serialize()
+### parse(input: string): any
 
-Serializes a literal Object to a query string.
+Transform an HTTP query string to literal object.
 
 ```javascript
-const obj = params({ a: 1, b: 2, c: 3 })
+import { parse } from '@jsweb/params'
 
-obj.serialize() // returns 'a=1&b=2&c=3'
+const obj = parse('a=1&b=2&c=3')   // { a: 1, b: 2, c: 3 }
 ```
 
-### params(data).form()
+### form(input: any): any
 
-This method is a *bonus* to build a FormData instance.
+Transform query string or object into FormData.
 
-It can receive an entry as query string, literal Object or HTMLFormElement.
+Input can be a query string, object or even an HTMLFormElement.
 
 ```javascript
-const data = params(any)  // querystring, literal Object or HTMLFormElement
+import { form } from '@jsweb/params'
 
-data.form()               // returns FormData instance with fields/values
+const data1 = form('a=1&b=2&c=3')          // FormData instance with fields/values
+const data2 = form({ a: 1, b: 2, c: 3 })   // FormData instance with fields/values
 ```

@@ -1,18 +1,16 @@
 {
   "files": [
-    "./src/main.ts"
+    "./src/module.ts"
   ],
   "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
-    "declaration": true,
     "outDir": "./dist",
-    "removeComments": true,
-    "importHelpers": true,
+    "target": "esnext",
+    "declaration": true,
+    "removeComments": false,
     "strict": true,
-    "noImplicitAny": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
+    "noImplicitAny": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
