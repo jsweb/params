@@ -1,6 +1,6 @@
 {
   "name": "@jsweb/params",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "Simple JS module to parse/serialize HTTP query/params, useful for Fetch API or AJAX requests",
   "main": "dist/umd.js",
   "esnext": "dist/module.mjs",
