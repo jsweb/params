@@ -20,7 +20,7 @@ export default [{
     name,
     banner,
     format: 'esm',
-    file: 'dist/module.mjs'
+    file: 'dist/module.js'
   }
 }, {
   input: 'src/umd.ts',

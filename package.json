@@ -4,7 +4,7 @@
   "description": "Simple JS module to parse/serialize HTTP query/params, useful for Fetch API or AJAX requests",
   "main": "dist/umd.js",
   "esnext": "dist/module.js",
-  "module": "dist/module.mjs",
+  "module": "dist/module.js",
   "types": "dist/module.d.ts",
   "repository": {
     "type": "git",
@@ -34,7 +34,6 @@
     "dist:test": "npm t",
     "dist:types": "tsc --removeComments --emitDeclarationOnly",
     "dist:build": "rollup -c",
-    "dist:copy": "shx cp ./dist/module.mjs ./dist/module.js",
     "test": "run-s test:*",
     "test:lint": "tslint -p . -c tslint.json",
     "test:clean": "shx rm -rf mocha*",
