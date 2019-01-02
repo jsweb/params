@@ -5,7 +5,11 @@
   ],
   "jsRules": {},
   "rules": {
-    "quotemark": [true, "single"]
+    "no-console": false,
+    "quotemark": [
+      true,
+      "single"
+    ]
   },
   "rulesDirectory": []
 }

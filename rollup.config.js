@@ -24,10 +24,7 @@ export default [{
   }
 }, {
   input: 'src/umd.ts',
-  plugins: [
-    typescript(),
-    esmin()
-  ],
+  plugins: [typescript(), esmin()],
   output: {
     name,
     banner,
@@ -35,4 +32,3 @@ export default [{
     file: 'dist/umd.js'
   }
 }]
-
