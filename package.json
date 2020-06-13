@@ -12,7 +12,8 @@
     "minor": "npm version minor && npm run push",
     "patch": "npm version patch && npm run push",
     "push": "git push && git push --tags",
-    "lint": "prettier --write src/*.js"
+    "lint": "prettier --write src/*.js",
+    "prepack": "npm run test:build"
   },
   "repository": {
     "type": "git",
