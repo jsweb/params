@@ -1,5 +1,5 @@
-import typescript from 'rollup-plugin-typescript'
-import esmin from 'rollup-plugin-esmin'
+import resolve from '@rollup/plugin-node-resolve'
+import common from '@rollup/plugin-commonjs'
 import pack from './package.json'
 
 const name = pack.name.split('/')[1]
@@ -13,22 +13,15 @@ const banner = `/**
  * @modify date ${modify}
  */`
 
-export default [{
-  input: 'src/module.ts',
-  plugins: [typescript()],
-  output: {
-    name,
-    banner,
-    format: 'esm',
-    file: 'dist/module.js'
-  }
-}, {
-  input: 'src/umd.ts',
-  plugins: [typescript(), esmin()],
-  output: {
-    name,
-    banner,
-    format: 'umd',
-    file: 'dist/umd.js'
-  }
-}]
+export default [
+  {
+    input: 'src/index.js',
+    plugins: [resolve(), common()],
+    output: {
+      name,
+      banner,
+      format: 'esm',
+      file: 'index.js',
+    },
+  },
+]

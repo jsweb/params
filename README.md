@@ -4,31 +4,29 @@ Simple JS module to parse/serialize HTTP query/params. Useful for Fetch API or A
 
 See tests at [https://params.jsweb.app](https://params.jsweb.app)
 
-![js-umd](https://img.shields.io/badge/js-umd-blue.svg?style=for-the-badge)
-![ecma-module](https://img.shields.io/badge/ecma-module-blue.svg?style=for-the-badge)
 ![npm-package](https://img.shields.io/badge/npm-package-blue.svg?style=for-the-badge)
-![code-typescript](https://img.shields.io/badge/code-typescript-blue.svg?style=for-the-badge)
+![es6-module](https://img.shields.io/badge/es6-module-blue.svg?style=for-the-badge)
 ![tests-mocha](https://img.shields.io/badge/tests-mocha-blue.svg?style=for-the-badge)
+
+## New in v4.0.0
+
+Now, its a full ES module, there is no UMD or CommonJS version.
+
+In modern JS development ES modules are the pattern, already supported in newer versions of Node.js and modern borwsers natively.
+
+Backward compatibility is not a concern here. If you use a module bundler (like Webpack or Rollup) to transpile your code, the result will be compatible according to your setup.
 
 ## Instalation
 
-You can install using NPM, Yarn or from CDN:
+You can install it using NPM, Yarn or via Unpkg CDN:
 
-```
-npm i -S @jsweb/params
-```
+`npm i -S @jsweb/params`
 
-```
-yarn add @jsweb/params
-```
-
-```html
-<script src="https://unpkg.com/@jsweb/params"></script>
-```
+`yarn add @jsweb/params`
 
 ## Usage
 
-### ES6+
+### ES6
 
 Tree shaking (since v3.1.0):
 
@@ -36,21 +34,21 @@ Tree shaking (since v3.1.0):
 import { serialize, parse, form } from '@jsweb/params'
 ```
 
-### CommonJS
+### From CDN (installation not required)
 
-```javascript
-const params = require('@jsweb/params')
+```html
+<script type="module">
+  import { form } from 'https://unpkg.com/@jsweb/params'
+
+  const data = form({ name: 'Lorem Ispum', mail: 'lorem@ipsum' })
+</script>
 ```
-
-### Global
-
-If you install with CDN script tag, `params` object will be available globally at `window` scope.
 
 ## Methods
 
 There are only 3 methods within **@jsweb/params**:
 
-### serialize(input: array | object): string
+### serialize(input: object): string
 
 Transform an object to HTTP query string.
 
@@ -67,7 +65,7 @@ Transform an HTTP query string to literal object.
 ```javascript
 import { parse } from '@jsweb/params'
 
-const obj = parse('a=1&b=2&c=3')   // { a: 1, b: 2, c: 3 }
+const obj = parse('a=1&b=2&c=3') // { a: 1, b: 2, c: 3 }
 ```
 
 ### form(input: any): any
@@ -79,6 +77,6 @@ Input can be a query string, object or even an HTMLFormElement.
 ```javascript
 import { form } from '@jsweb/params'
 
-const data1 = form('a=1&b=2&c=3')          // FormData instance with fields/values
-const data2 = form({ a: 1, b: 2, c: 3 })   // FormData instance with fields/values
+const data1 = form('a=1&b=2&c=3') // FormData instance with fields/values
+const data2 = form({ a: 1, b: 2, c: 3 }) // FormData instance with fields/values
 ```

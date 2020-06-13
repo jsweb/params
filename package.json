@@ -5,19 +5,14 @@
   "scripts": {
     "test": "run-s test:*",
     "test:lint": "npm run lint",
-    "test:clean": "shx rm -rf mocha*",
-    "test:report": "mocha src/**/*.test.ts --require ts-node/register --reporter mochawesome --reporter-options reportTitle=@jsweb/params",
+    "test:build": "rollup -c",
+    "test:clean": "rm -rf mochawesome-report",
+    "test:report": "mocha test.js --reporter mochawesome --reporter-options reportTitle=@jsweb/params",
     "major": "npm version major && npm run push",
     "minor": "npm version minor && npm run push",
     "patch": "npm version patch && npm run push",
-    "prepare": "npm run dist",
     "push": "git push && git push --tags",
-    "lint": "tsc --noEmit && tslint -p . -c tslint.json --fix",
-    "dist": "run-s dist:*",
-    "dist:test": "npm t",
-    "dist:clean": "shx rm -rf dist",
-    "dist:types": "tsc --removeComments --emitDeclarationOnly",
-    "dist:build": "rollup -c"
+    "lint": "prettier --write src/*.js"
   },
   "repository": {
     "type": "git",
@@ -42,28 +37,24 @@
   },
   "homepage": "https://params.jsweb.app",
   "devDependencies": {
-    "@types/mocha": "^5.2.5",
-    "@types/node": "^12.0.8",
-    "husky": "^2.4.1",
-    "mocha": "^6.1.4",
-    "mochawesome": "^4.0.1",
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.1",
+    "husky": "^4.2.5",
+    "lodash": "^4.17.15",
+    "mocha": "^8.0.1",
+    "mochawesome": "^6.1.1",
     "npm-run-all": "^4.1.5",
-    "rollup": "^1.0.0",
-    "rollup-plugin-esmin": "^0.1.3",
-    "rollup-plugin-typescript": "^1.0.0",
-    "shx": "^0.3.2",
-    "ts-node": "^8.3.0",
-    "tslib": "^1.9.3",
-    "tslint": "^5.12.0",
-    "typescript": "^3.2.2"
+    "object-to-formdata": "^3.0.9",
+    "prettier": "^2.0.5",
+    "rollup": "^2.16.0"
   },
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint && git add ."
     }
   },
-  "main": "dist/umd.js",
-  "esnext": "dist/module.js",
-  "module": "dist/module.js",
-  "types": "dist/module.d.ts"
+  "type": "module",
+  "main": "index.js",
+  "esnext": "index.js",
+  "module": "index.js"
 }
