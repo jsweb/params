@@ -1,7 +1,5 @@
 dist
 mochawesome-report
-index.js
-!src/index.js
 
 # Logs
 logs

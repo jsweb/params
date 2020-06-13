@@ -50,7 +50,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && git add ."
+      "pre-commit": "npm t && git add ."
     }
   },
   "type": "module",
