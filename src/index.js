@@ -3,16 +3,12 @@ import { objectToFormData } from 'object-to-formdata'
 
 /**
  * Transform an object to HTTP query string.
- * Returns a string containing a query string suitable for use in a URL.
+ * Returns a query string suitable for use in URL.
  * Does not include the question mark.
  *
- * @export {function}
- * @param {*} input
- * @returns {string}
- * @example
- * import { serialize } from '@jsweb/params'
- *
- * const query = serialize({ a: 1, b: 2, c: 3 })  // returns 'a=1&b=2&c=3'
+ * @export Function
+ * @param {Object} input
+ * @returns {String} String
  */
 export function serialize(input = {}) {
   const params = new URLSearchParams()
@@ -44,15 +40,11 @@ export function serialize(input = {}) {
 }
 
 /**
- * Transform an HTTP query string to literal object.
+ * Transform HTTP query string to literal object.
  *
- * @export {function}
- * @param {string} input
- * @returns {object}
- * @example
- * import { parse } from '@jsweb/params'
- *
- * const obj = parse('a=1&b=2&c=3')   // { a: 1, b: 2, c: 3 }
+ * @export Function
+ * @param {String} input
+ * @returns {Object} Object
  */
 export function parse(input = '') {
   const params = new URLSearchParams(input)
@@ -76,14 +68,9 @@ export function parse(input = '') {
 /**
  * Transform query string or object into FormData.
  *
- * @export {function}
+ * @export Function
  * @param {*} input
- * @returns {*}
- * @example
- * import { form } from '@jsweb/params'
- *
- * const data1 = form('a=1&b=2&c=3')          // FormData instance with fields/values
- * const data2 = form({ a: 1, b: 2, c: 3 })   // FormData instance with fields/values
+ * @returns {*} *
  */
 export function form(input) {
   if (typeof FormData === 'undefined') {

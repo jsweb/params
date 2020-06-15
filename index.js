@@ -4,7 +4,7 @@
  * @desc Simple JS module to parse/serialize HTTP query/params, useful for Fetch API or AJAX requests
  * @author Alex Bruno <git.alexbr@outlook.com>
  * @create date 2016-07-16 09:26:19
- * @modify date 2020-06-13 20:18:38
+ * @modify date 2020-06-15 16:55:02
  */
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -1307,16 +1307,12 @@ var n=function(n){return void 0===n},e=function(n){return Array.isArray(n)},t=fu
 
 /**
  * Transform an object to HTTP query string.
- * Returns a string containing a query string suitable for use in a URL.
+ * Returns a query string suitable for use in URL.
  * Does not include the question mark.
  *
- * @export {function}
- * @param {*} input
- * @returns {string}
- * @example
- * import { serialize } from '@jsweb/params'
- *
- * const query = serialize({ a: 1, b: 2, c: 3 })  // returns 'a=1&b=2&c=3'
+ * @export Function
+ * @param {Object} input
+ * @returns {String} String
  */
 function serialize(input = {}) {
   const params = new URLSearchParams();
@@ -1348,15 +1344,11 @@ function serialize(input = {}) {
 }
 
 /**
- * Transform an HTTP query string to literal object.
+ * Transform HTTP query string to literal object.
  *
- * @export {function}
- * @param {string} input
- * @returns {object}
- * @example
- * import { parse } from '@jsweb/params'
- *
- * const obj = parse('a=1&b=2&c=3')   // { a: 1, b: 2, c: 3 }
+ * @export Function
+ * @param {String} input
+ * @returns {Object} Object
  */
 function parse(input = '') {
   const params = new URLSearchParams(input);
@@ -1380,14 +1372,9 @@ function parse(input = '') {
 /**
  * Transform query string or object into FormData.
  *
- * @export {function}
+ * @export Function
  * @param {*} input
- * @returns {*}
- * @example
- * import { form } from '@jsweb/params'
- *
- * const data1 = form('a=1&b=2&c=3')          // FormData instance with fields/values
- * const data2 = form({ a: 1, b: 2, c: 3 })   // FormData instance with fields/values
+ * @returns {*} *
  */
 function form(input) {
   if (typeof FormData === 'undefined') {
