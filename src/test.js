@@ -1,5 +1,5 @@
 import { deepEqual, equal } from 'assert'
-import { form, parse, serialize } from './index.js'
+import { form, parse, serialize } from '../index.js'
 
 const qobj = {
   a: 1,

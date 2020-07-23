@@ -7,7 +7,7 @@
     "test:lint": "npm run lint",
     "test:build": "rollup -c",
     "test:clean": "rm -rf mochawesome-report",
-    "test:report": "mocha test.js --reporter mochawesome --reporter-options reportTitle=@jsweb/params",
+    "test:report": "mocha src/test.js --reporter mochawesome --reporter-options reportTitle=@jsweb/params",
     "major": "npm version major && npm run push",
     "minor": "npm version minor && npm run push",
     "patch": "npm version patch && npm run push",
