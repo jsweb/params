@@ -1,10 +1,10 @@
 /**
  * @name @jsweb/params
- * @version 4.0.9
+ * @version 4.0.10
  * @desc Simple JS module to parse/serialize HTTP query/params, useful for Fetch API or AJAX requests
  * @author Alex Bruno <git.alexbr@outlook.com>
  * @create date 2016-07-16 09:26:19
- * @modify date 2020-07-23 02:54:54
+ * @modify date 2020-07-23 02:55:10
  */
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
