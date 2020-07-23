@@ -4,7 +4,7 @@
  * @desc Simple JS module to parse/serialize HTTP query/params, useful for Fetch API or AJAX requests
  * @author Alex Bruno <git.alexbr@outlook.com>
  * @create date 2016-07-16 09:26:19
- * @modify date 2020-07-22 17:26:20
+ * @modify date 2020-07-23 02:50:21
  */
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -1335,9 +1335,10 @@ function serialize(input = {}) {
       return val && params.set(key, val)
     });
 
-    const qs = params.toString().replace(/\[\d\]/g, '[]');
+    const qs = params.toString();
+    const result = decodeURIComponent(qs);
 
-    return decodeURIComponent(qs)
+    return result
   };
 
   return iterate(input)

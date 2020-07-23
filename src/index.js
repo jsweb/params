@@ -31,9 +31,10 @@ export function serialize(input = {}) {
       return val && params.set(key, val)
     })
 
-    const qs = params.toString().replace(/\[\d\]/g, '[]')
+    const qs = params.toString()
+    const result = decodeURIComponent(qs)
 
-    return decodeURIComponent(qs)
+    return result
   }
 
   return iterate(input)
