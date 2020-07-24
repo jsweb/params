@@ -48,8 +48,8 @@ export function serialize(input = {}) {
  * @returns {Object} Object
  */
 export function parse(input = '') {
-  const params = new URLSearchParams(input)
   const data = {}
+  const params = new URLSearchParams(input)
 
   Array.from(params.entries()).forEach(([key, val]) => {
     if (!key) return null
