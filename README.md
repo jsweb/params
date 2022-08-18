@@ -4,9 +4,9 @@ Simple JS module to parse/serialize HTTP query/params. Useful for Fetch API or A
 
 See tests at [https://params.jsweb.app](https://params.jsweb.app)
 
-![npm-package](https://img.shields.io/badge/npm-package-blue.svg?style=for-the-badge)
-![es6-module](https://img.shields.io/badge/es6-module-blue.svg?style=for-the-badge)
-![tests-mocha](https://img.shields.io/badge/tests-mocha-blue.svg?style=for-the-badge)
+![package-npm](https://img.shields.io/badge/package-npm-blue.svg?style=for-the-badge)
+![module-es](https://img.shields.io/badge/module-es-blue.svg?style=for-the-badge)
+![tests-ava](https://img.shields.io/badge/tests-ava-blue.svg?style=for-the-badge)
 
 ## New in v4.0.0
 
