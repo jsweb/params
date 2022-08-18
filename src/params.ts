@@ -1,19 +1,19 @@
 import set from 'lodash/set'
-import { objectToFormData } from 'object-to-formdata'
+import { serialize as objectToFormData } from 'object-to-formdata'
 
 /**
- * Transform an object to HTTP query string.
+ * Transforms an object to HTTP query string.
  * Returns a query string suitable for use in URL.
  * Does not include the question mark.
  *
  * @export Function
- * @param {Object} input
+ * @param {Record<string, any>} input
  * @returns {String} String
  */
-export function serialize(input = {}) {
+export function serialize(input: Record<string, any> = {}): string {
   const params = new URLSearchParams()
 
-  const iterate = (obj, pre) => {
+  const iterate = (obj: Record<string, any>, pre?: string) => {
     const keys = Object.keys(obj)
 
     keys.forEach((k) => {
@@ -25,8 +25,7 @@ export function serialize(input = {}) {
 
       if (typeof param === 'object') return iterate(param, key)
 
-      const nan = Number.isNaN(param)
-      const val = nan ? param : param.toString()
+      const val = Number.isFinite(param) ? param.toString() : param
 
       return val && params.set(key, val)
     })
@@ -41,20 +40,18 @@ export function serialize(input = {}) {
 }
 
 /**
- * Transform HTTP query string to literal object.
+ * Transforms URL query string to an object.
  *
  * @export Function
  * @param {String} input
- * @returns {Object} Object
+ * @returns {Record<string, any>} Object
  */
-export function parse(input = '') {
-  const data = {}
+export function parse(input: string = ''): Record<string, any> {
+  const data: Record<string, any> = {}
   const params = new URLSearchParams(input)
 
   Array.from(params.entries()).forEach(([key, val]) => {
-    if (!key) return null
-
-    const value = !val ? null : isNaN(val) ? val : Number(val)
+    const value = !val ? null : /^\d+$/.test(val) ? Number(val) : val
 
     if (!key.includes('[')) return (data[key] = value)
 
@@ -67,13 +64,13 @@ export function parse(input = '') {
 }
 
 /**
- * Transform query string or object into FormData.
+ * Transforms query string or object into FormData.
  *
  * @export Function
  * @param {*} input
  * @returns {*} *
  */
-export function form(input) {
+export function form(input: any): any {
   if (typeof FormData === 'undefined') {
     console.error('FormData not supported')
     return input

@@ -1,12 +1,15 @@
-mochawesome-report
+coverage
+dist
+
+# Dependencies
+node_modules
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
 
 # Logs
 logs
 *.log
 npm-debug.log*
-
-# Dependency directories
-node_modules
-
-# Optional npm cache directory
-.npm
+yarn-debug.log*
+yarn-error.log*

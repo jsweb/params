@@ -2,22 +2,13 @@
   "name": "@jsweb/params",
   "version": "4.0.11",
   "description": "Simple JS module to parse/serialize HTTP query/params, useful for Fetch API or AJAX requests",
-  "scripts": {
-    "test": "run-s test:*",
-    "test:lint": "npm run lint",
-    "test:build": "rollup -c",
-    "test:clean": "rm -rf mochawesome-report",
-    "test:report": "mocha src/test.js --reporter mochawesome --reporter-options reportTitle=@jsweb/params",
-    "major": "npm version major && npm run push",
-    "minor": "npm version minor && npm run push",
-    "patch": "npm version patch && npm run push",
-    "push": "git push && git push --tags",
-    "lint": "prettier --write src/*.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jsweb/params.git"
-  },
+  "type": "module",
+  "main": "dist/params.js",
+  "esnext": "dist/params.js",
+  "module": "dist/params.js",
+  "types": "dist/params.d.ts",
+  "author": "Alex Bruno <contato@alexbruno.dev>",
+  "license": "MIT",
   "keywords": [
     "parse",
     "serialize",
@@ -30,31 +21,52 @@
     "js",
     "javascript"
   ],
-  "author": "Alex Bruno <git.alexbr@outlook.com>",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsweb/params.git"
+  },
   "bugs": {
     "url": "https://github.com/jsweb/params/issues"
   },
   "homepage": "https://params.jsweb.app",
+  "scripts": {
+    "test": "run-s test:*",
+    "test:tsc": "tsc --noEmit",
+    "test:lint": "prettier --write src/*.ts",
+    "test:clean": "rm -rf coverage",
+    "test:unit": "c8 ava",
+    "test:report": "c8 report -r html -x src/test.ts",
+    "build": "run-s build:*",
+    "build:tsc": "tsc --noEmit",
+    "build:lint": "prettier src/*.ts",
+    "build:test": "ava",
+    "build:dist": "node esbuild.js",
+    "build:types": "tsc -p tsconfig.build.json --emitDeclarationOnly",
+    "upd8": "rm -rf node_modules pnpm-lock.yaml && pnpm i",
+    "preversion": "npm t",
+    "postversion": "git push && git push --tags"
+  },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^13.0.0",
-    "@rollup/plugin-node-resolve": "^8.0.1",
-    "husky": "^4.2.5",
-    "lodash": "^4.17.19",
-    "mocha": "^8.0.1",
-    "mochawesome": "^6.1.1",
-    "npm-run-all": "^4.1.5",
-    "object-to-formdata": "^3.0.9",
-    "prettier": "^2.0.5",
-    "rollup": "^2.16.0"
+    "@ava/typescript": "latest",
+    "@types/lodash": "^4.14.183",
+    "@types/node": "latest",
+    "ava": "latest",
+    "c8": "latest",
+    "esbuild": "latest",
+    "lodash": "latest",
+    "npm-run-all": "latest",
+    "object-to-formdata": "latest",
+    "prettier": "latest",
+    "ts-node": "latest",
+    "typescript": "latest"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm t && git add ."
-    }
-  },
-  "type": "module",
-  "main": "index.js",
-  "esnext": "index.js",
-  "module": "index.js"
+  "ava": {
+    "extensions": {
+      "ts": "module"
+    },
+    "nodeArguments": [
+      "--loader=ts-node/esm",
+      "--es-module-specifier-resolution=node"
+    ]
+  }
 }
