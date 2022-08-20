@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@ava/typescript": "latest",
-    "@types/lodash": "^4.14.183",
+    "@types/lodash": "latest",
     "@types/node": "latest",
     "ava": "latest",
     "c8": "latest",
